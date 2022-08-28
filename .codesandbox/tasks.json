@@ -1,0 +1,24 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": ["rustup", "wp-install", "run"],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "rustup": {
+      "name": "rustup",
+      "command": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    },
+    "wp-install": {
+      "name": "wp-install",
+      "command": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh"
+    },
+    "buildwasm": {
+      "name": "buildwasm",
+      "command": "cd wasm-game-of-life && wasm-pack build"
+    },
+    "run": {
+      "name": "run",
+      "command": "cd wasm-game-of-life/www && npm run start"
+    }
+  }
+}
